@@ -76,14 +76,6 @@ Below is the structure of the requests you should include in your Postman Collec
 | **DELETE Order** | `DELETE`| `http://localhost:8080/api/orders/1` | (None) | Deletes the order with ID 1. | Status `204 No Content`. |
 | **READ Not Found** | `GET` | `http://localhost:8080/api/orders/999` | (None) | Attempts to retrieve a non-existent order. | Status `404 Not Found`. |
 
-**Example JSON for the `POST` request (CREATE Order):**
 
-```json
-{
-    "customerId": 101,kkkkkk
-    "totalAmount": 150.75
-}
-```
-Javier David Barraza Ureña 
-ID NAO: 3303
+Javier David Barraza Ureña ID NAO: 3303
 
