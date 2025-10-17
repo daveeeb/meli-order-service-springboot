@@ -80,7 +80,7 @@ Below is the structure of the requests you should include in your Postman Collec
 
 ```json
 {
-    "customerId": 101,
+    "customerId": 101,kkkkkk
     "totalAmount": 150.75
 }
 ```
