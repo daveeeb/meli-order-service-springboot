@@ -36,7 +36,9 @@ public class Order {
      * Links the order to a specific customer in the system.
      */
 
-    private Long customerId;
+    @ManyToOne
+    @JoinColumn(name = "customer_id",nullable = false)
+    private Custumer custumer;
 
     /**
      * Date and time when the order was created.
@@ -50,9 +52,23 @@ public class Order {
     private BigDecimal totalAmount;
 
     /**
+     * Order payment method (CASH, CREDIT_CARD, PAYPAL, etc.).
+     */
+    private String paymentMethod;
+
+    /**
+     * Order shipping address (can differ from customer default address).
+     */
+    private String shippingAddress;
+
+    /**
+     * Current status of the order.
+     */
+    private String status = "Pending";
+
+    /**
      * Current status of the order (e.g., PENDING, SHIPPED, DELIVERED).
      * Defaults to "PENDING".
      */
-
-    private String status = "Pending";
+    private String notes;
 }
