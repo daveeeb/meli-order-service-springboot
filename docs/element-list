@@ -1,0 +1,6 @@
+org.example.meliorderservicespringboot
+org.example.meliorderservicespringboot.controller
+org.example.meliorderservicespringboot.models
+org.example.meliorderservicespringboot.repository
+org.example.meliorderservicespringboot.service
+org.example.meliorderservicespringboot.service.implementation
