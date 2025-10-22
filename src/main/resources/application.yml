@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: meli-order-service
+  profiles:
+    active: prod
