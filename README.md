@@ -1,9 +1,23 @@
-# Spring and Spring Boot in Java for Web Applications
+# CHALLENGUE 5: Spring and Spring Boot in Java for Web Applications
 
-## MELI Order Management Service — Sprint 1 & 2
+## MELI Order Management Service — Sprint 1, 2 & 3
 
-This project implements the first two sprints for the **MELI Order Management System**, built with **Spring Boot 3.0** and **Java 17**.  
-It provides a **RESTful API** for order management (CRUD) and introduces configuration of **environment profiles** for development, testing, and production environments.
+The **MELI Order Management Service** is a backend system built with **Spring Boot 3.0** and **Java 17**, designed to manage the full lifecycle of customer orders for an e-commerce platform.  
+It provides a structured **RESTful API** that enables the creation, retrieval, updating, and deletion (CRUD) of orders, along with customer data association and validation.
+
+The project is structured to support **multi-environment configuration** (`dev`, `test`, `prod`) using **Spring Profiles**, allowing seamless integration with both in-memory (H2) and production-grade (PostgreSQL) databases.  
+It also integrates **OpenAPI (Swagger)** for API documentation, offering a user-friendly interface for testing and understanding endpoints.
+
+Comprehensive **unit and integration testing** has been implemented with **JUnit 5** and **Mockito** to ensure the reliability of business logic and REST endpoints.  
+This ensures that the API meets software quality standards and can be deployed confidently in real-world environments.
+
+**Key Features:**
+- Modular Spring Boot architecture following layered design (Controller → Service → Repository).
+- Full CRUD operations for orders linked to customer entities.
+- Environment-specific configurations and database connections.
+- Swagger-based live API documentation.
+- Automated testing suite for service and controller layers.
+- Ready-to-deploy JAR build process with Maven.
 
 ---
 
@@ -13,6 +27,7 @@ It provides a **RESTful API** for order management (CRUD) and introduces configu
 | :---: | :--- | :--- |
 | **Sprint 1** | Basic CRUD implementation | Order entity, REST controller, H2 database, and Postman collection. |
 | **Sprint 2** | Environment configuration | Spring profiles (`dev`, `test`, `prod`), YAML config files, and system variables for database connections. |
+| **Sprint 3** | API Documentation and Testing | **Swagger/OpenAPI** documentation integrated with Spring Boot, **JUnit 5 unit and integration tests** for the Order service and controller, and **test coverage for CRUD operations** and edge cases. Repository updated with Swagger UI and test scripts. |
 
 ---
 
@@ -26,6 +41,7 @@ It provides a **RESTful API** for order management (CRUD) and introduces configu
 - **Maven 3.x**
 - **Lombok**
 - **Spring Profiles**
+- **Swagger UI**
 
 ---
 ## REST API Endpoints
@@ -120,34 +136,87 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 You can change dev for pro(production) or test(testing)
 
+## Sprint 3 — Detailed Overview
+
+### API Documentation using OpenAPI (Swagger)
+
+**Goal:** Document the API endpoints with Swagger to provide an interactive and clear interface for developers and testers.
+
+#### Configuration Steps
+
+1. Add Swagger dependencies in your `pom.xml`:
+
+```xml
+<dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>2.6.0</version>
+</dependency>
+```
+2. Create a configuration class:
+```java
+package org.example.meliorderservicespringboot.config;
+
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class SwaggerConfig {
+    @Bean
+    public OpenAPI customOpenAPI() {
+        return new OpenAPI()
+                .info(new Info()
+                        .title("Meli Order Service API")
+                        .version("1.0.0")
+                        .description("API documentation for the Meli Order Service project"));
+    }
+}
+
+```
+3. Run your application and open (View Swagger Documentation):
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
+
 ## Project Structure
 ```
 meli-order-service-springboot/
 │
 ├── src/
 │   ├── main/
-│       ├── java/org/example/meliorderservicespringboot/
-│       │   ├── controller/
-│       │   │   ├── OrderController.java
-│       │   │   └── CustomerController.java
-│       │   ├── models/
-│       │   │   ├── Order.java
-│       │   │   └── Customer.java
-│       │   ├── repository/
-│       │   │   ├── OrderRepository.java
-│       │   │   └── CustomerRepository.java
-│       │   ├── service/
-│       │   │   ├── OrderService.java
-│       │   │   ├── CustomerService.java
-│       │   │   └── implementation/
-│       │   │       ├── OrderServiceImplementation.java
-│       │   │       └── CustomerServiceImplementation.java
-│       │   └── MeliOrderServiceSpringbootApplication.java
-│       └── resources/
-│           ├── application.yml
-│           ├── application-dev.yml
-│           ├── application-test.yml
-│           └── application-prod.yml
+│   |    ├── java/org/example/meliorderservicespringboot/
+|   |    |   |   ├── config/
+│   |    │   │   └── SwaggerConfig.java
+│   |    │   ├── controller/
+│   |    │   │   ├── OrderController.java
+│   |    │   │   └── CustomerController.java
+│   |    │   ├── models/
+│   |    │   │   ├── Order.java
+│   |    │   │   └── Customer.java
+│   |    │   ├── repository/
+│   |    │   │   ├── OrderRepository.java
+│   |    │   │   └── CustomerRepository.java
+│   |    │   ├── service/
+│   |    │   │   ├── OrderService.java
+│   |    │   │   ├── CustomerService.java
+│   |    │   │   └── implementation/
+│   |    │   │       ├── OrderServiceImplementation.java
+│   |    │   │       └── CustomerServiceImplementation.java
+│   |    │   └── MeliOrderServiceSpringbootApplication.java
+│   |    └── resources/
+│   |        ├── application.yml
+│   |        ├── application-dev.yml
+│   |        ├── application-test.yml
+│   |        └── application-prod.yml
+|   | 
+|    └── test/java/org/example/meliorderservicespringboot/
+|        ├── controller/
+|        │   └── OrderControllerTest.java
+|        └── service/implementation/
+|            └── OrderServiceImplementationTest.java
 │
 ├── pom.xml
 ├── README.md
