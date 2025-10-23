@@ -1,4 +1,5 @@
 org.example.meliorderservicespringboot
+org.example.meliorderservicespringboot.config
 org.example.meliorderservicespringboot.controller
 org.example.meliorderservicespringboot.models
 org.example.meliorderservicespringboot.repository
