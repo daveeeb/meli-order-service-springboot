@@ -126,31 +126,28 @@ meli-order-service-springboot/
 │
 ├── src/
 │   ├── main/
-│   │   ├── java/org/example/meliorderservicespringboot/
-│   │   │   ├── controller/
-│   │   │   │   ├── OrderController.java
-│   │   │   │   └── CustomerController.java
-│   │   │   ├── models/
-│   │   │   │   ├── Order.java
-│   │   │   │   └── Customer.java
-│   │   │   ├── repository/
-│   │   │   │   ├── OrderRepository.java
-│   │   │   │   └── CustomerRepository.java
-│   │   │   ├── service/
-│   │   │   │   ├── OrderService.java
-│   │   │   │   ├── CustomerService.java
-│   │   │   │   └── implementation/
-│   │   │   │       ├── OrderServiceImplementation.java
-│   │   │   │       └── CustomerServiceImplementation.java
-│   │   │   └── MeliOrderServiceSpringbootApplication.java
-│   │   └── resources/
-│   │       ├── application.yml
-│   │       ├── application-dev.yml
-│   │       ├── application-test.yml
-│   │       └── application-prod.yml
-│   └── test/
-│       └── java/org/example/meliorderservicespringboot/
-│           └── OrderControllerTest.java
+│       ├── java/org/example/meliorderservicespringboot/
+│       │   ├── controller/
+│       │   │   ├── OrderController.java
+│       │   │   └── CustomerController.java
+│       │   ├── models/
+│       │   │   ├── Order.java
+│       │   │   └── Customer.java
+│       │   ├── repository/
+│       │   │   ├── OrderRepository.java
+│       │   │   └── CustomerRepository.java
+│       │   ├── service/
+│       │   │   ├── OrderService.java
+│       │   │   ├── CustomerService.java
+│       │   │   └── implementation/
+│       │   │       ├── OrderServiceImplementation.java
+│       │   │       └── CustomerServiceImplementation.java
+│       │   └── MeliOrderServiceSpringbootApplication.java
+│       └── resources/
+│           ├── application.yml
+│           ├── application-dev.yml
+│           ├── application-test.yml
+│           └── application-prod.yml
 │
 ├── pom.xml
 ├── README.md
