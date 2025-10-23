@@ -28,6 +28,17 @@ It provides a **RESTful API** for order management (CRUD) and introduces configu
 - **Spring Profiles**
 
 ---
+## REST API Endpoints
+
+All endpoints are prefixed with `/api/v1/orders`.
+
+| Method | Path | Description |
+| :---: | :---: | :--- |
+| `POST` | `/api/orders` | **C**reate: Creates a new order. |
+| `GET` | `/api/orders/{id}` | **R**ead: Retrieves an order by ID. |
+| `GET` | `/api/orders` | **R**ead: Retrieves all orders. |
+| `PUT` | `/api/orders/{id}` | **U**pdate: Updates an existing order. |
+| `DELETE` | `/api/orders/{id}`| **D**elete: Deletes an order. |
 
 ## Installation and Setup Guide
 Step 1: Clone the Repository
