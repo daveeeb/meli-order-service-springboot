@@ -40,6 +40,17 @@ All endpoints are prefixed with `/api/v1/orders`.
 | `PUT` | `/api/orders/{id}` | **U**pdate: Updates an existing order. |
 | `DELETE` | `/api/orders/{id}`| **D**elete: Deletes an order. |
 
+### Postman Collection Structure
+
+| Request | Method | URL | Body (JSON) | Description | Expected Response |
+| :---: | :---: | :--- | :--- | :--- | :--- |
+| **CREATE Order** | `POST` | `http://localhost:8080/api/v1/orders` | `{"customerId": 101, "totalAmount": 150.75}` | Creates a new order for customer 101. | Status `201 Created`. `Order` object with an `id` and `createdAt`. |
+| **READ All Orders** | `GET` | `http://localhost:8080/api/v1/orders` | (None) | Retrieves the list of all created orders. | Status `200 OK`. JSON array of `Order` objects. |
+| **READ Order by ID** | `GET` | `http://localhost:8080/api/v1/orders/1` | (None) | Retrieves the order with ID 1. | Status `200 OK`. `Order` object. |
+| **UPDATE Order** | `PUT` | `http://localhost:8080/api/v1/orders/1` | `{"totalAmount": 160.00, "status": "SHIPPED", "customerId": 101}` | Updates the amount and status of order 1. | Status `200 OK`. Updated `Order` object. |
+| **DELETE Order** | `DELETE`| `http://localhost:8080/api/v1/orders/1` | (None) | Deletes the order with ID 1. | Status `204 No Content`. |
+| **READ Not Found** | `GET` | `http://localhost:8080/api/v1/orders/999` | (None) | Attempts to retrieve a non-existent order. | Status `404 Not Found`. |
+
 ## Installation and Setup Guide
 Step 1: Clone the Repository
 ```bash
